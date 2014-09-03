@@ -1,9 +1,15 @@
-<% if @name %>
-	Welcome to BattleShips, <%= @name %>!
+<% if @player_one && !@player_two %>
+	Welcome to BattleShips, <%= @player_one %>!
+	Player Two, what's your name?
+	<form action="/new_game" method="post">
+		<input type="text" value="Player Two" name="player_two">
+		<button type="submit" id="submit">Enter</button>
+<% elsif @player_one && @player_two %>
+  Welcome to BattleShips, <%= @player_two %>!
 <% else %>
-	What's your name?
-	<form>
-		<input type="text" value="Player One" name="name">
+	Player One, what's your name?
+	<form action="/new_game" method="post">
+		<input type="text" value="Player One" name="player_one">
 		<button type="submit" id="submit">Enter</button>
 	</form>
 <% end %>

@@ -6,8 +6,8 @@ Feature: Starting the game
 	Scenario: Obtaining name
 		Given I am on the homepage
 		When I click "New Game"
-		Then I should see "What's your name?"
-		And I should see a form for "name" input
+		Then I should see "Player One, what's your name?"
+		And I should see a form for "player_one" input
 		And I should see a submit button
 
 	Scenario: Submitting my name
@@ -20,3 +20,9 @@ Feature: Starting the game
 		And I am the only player so far
 		When I submit my name without typing anything in
 		Then I should see "Welcome to BattleShips, Player One!"
+
+  Scenario: Adding a second player
+    Given I am on the new game page
+    When Player One has added themselves as "Dave"
+    Then I should see a form for "player_two" input
+    And I should see a submit button

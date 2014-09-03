@@ -31,7 +31,7 @@ Given(/^I am on the new game page$/) do
 end
 
 When(/^I submit "(.*?)" as my name$/) do |name|
-	fill_in("name", with: name)
+	fill_in("player_one", with: name)
 	click_button("submit")
 end
 
@@ -41,4 +41,10 @@ end
 
 When(/^I submit my name without typing anything in$/) do
 	click_button("submit")
+end
+
+When(/^Player One has added themselves as "(.*?)"$/) do |name|
+  fill_in("player_one", with: name)
+  click_button("submit")
+  expect(@player_one).to be true 
 end
