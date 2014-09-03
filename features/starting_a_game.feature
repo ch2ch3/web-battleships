@@ -14,3 +14,9 @@ Feature: Starting the game
 		Given I am on the new game page
 		When I submit "Dave" as my name
 		Then I should see "Welcome to BattleShips, Dave!"
+
+	Scenario: Not submitting my name
+		Given I am on the new game page
+		And I am the only player so far
+		When I submit my name without typing anything in
+		Then I should see "Welcome to BattleShips, Player One!"

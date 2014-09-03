@@ -34,3 +34,11 @@ When(/^I submit "(.*?)" as my name$/) do |name|
 	fill_in("name", with: name)
 	click_button("submit")
 end
+
+Given(/^I am the only player so far$/) do
+	expect(current_url).to match(/new_game$/)
+end
+
+When(/^I submit my name without typing anything in$/) do
+	click_button("submit")
+end
