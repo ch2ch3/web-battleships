@@ -17,3 +17,20 @@ end
 Then(/^I should see "(.*?)"$/) do |text|
 	expect(page).to have_content(text)
 end
+
+Then(/^somewhere I can write my name$/) do
+  expect(page).to have_field("name")
+end
+
+Then(/^a button that I can click$/) do
+  expect(page).to have_button("submit")
+end
+
+
+
+
+
+
+
+
+
