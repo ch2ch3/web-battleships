@@ -18,8 +18,8 @@ Then(/^I should see "(.*?)"$/) do |text|
 	expect(page).to have_content(text)
 end
 
-Then(/^I should see a form for "(.*?)" input$/) do |field_name|
- 	expect(page).to have_field(field_name)
+Then(/^I should see a form for adding a player$/) do
+ 	expect(page).to have_field("player")
 end
 
 Then(/^I should see a submit button$/) do
@@ -31,7 +31,7 @@ Given(/^I am on the new game page$/) do
 end
 
 When(/^I submit "(.*?)" as my name$/) do |name|
-	fill_in("player_one", with: name)
+	fill_in("player", with: name)
 	click_button("submit")
 end
 
@@ -44,7 +44,13 @@ When(/^I submit my name without typing anything in$/) do
 end
 
 When(/^Player One has added themselves as "(.*?)"$/) do |name|
-  fill_in("player_one", with: name)
+  fill_in("player", with: name)
   click_button("submit")
-  expect(@player_one).to be true 
+end
+
+Given(/^Dave has added himself as a player$/) do
+	steps %Q{
+	Given I am on the new game page
+	When I submit "Dave" as my name
+	}
 end
