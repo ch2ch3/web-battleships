@@ -2,8 +2,8 @@ require 'game'
 
 describe Game do
 
-  let(:player_1) { Player.new }
-  let(:player_2) { Player.new }
+  let(:player_1) { Player.new("Andy") }
+  let(:player_2) { Player.new("Dave") }
   #let(:player_1) { double :player, :firing_board => nil, :firing_board= => nil, :fleet => nil }
   #let(:player_2) { double :player, :firing_board => nil, :firing_board= => nil }
 	let(:game) { Game.new }
