@@ -7,7 +7,7 @@ group :development, :test do
 	gem 'cucumber'
 	gem 'cucumber-sinatra'
 	gem 'launchy'
-	gem 'rake', :group => :test
+	gem 'rake'
 	gem 'rspec'
 	gem 'shotgun'
 	gem 'thin'
