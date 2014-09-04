@@ -1,9 +1,10 @@
 class Player
 
-	  attr_reader :fleet
+	  attr_reader :fleet, :name
   	attr_accessor :firing_board, :ship_board
 
-	def initialize
+	def initialize(name)
+    @name = name
 		@fleet = []
 	end
 	

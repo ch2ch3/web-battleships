@@ -2,7 +2,7 @@ require 'player'
 
 describe Player do
 
-	let(:player_1)  { Player.new                      }
+	let(:player_1)  { Player.new("James")               }
 	let(:carrier)	{ double :carrier, sunk?: true    }
 	let(:submarine) { double :submarine, sunk?: false }
 	let(:destroyer) { double :destroyer, sunk?: false }
@@ -12,6 +12,10 @@ describe Player do
 		player_1.fleet << submarine
 		player_1.fleet << destroyer
 	end
+
+  it "should initialize with a name" do
+    expect(player_1.name).to eq("James")
+  end
 
 	it "should be able to hold fleet" do
 		expect(player_1.fleet.class).to eq Array
