@@ -63,18 +63,28 @@ Given(/^I've started a game with the players "(.*?)" and "(.*?)"$/) do |arg1, ar
 	steps %Q{
 	Given Dave has added himself as a player
 	When I submit "Ethel" as my name
-	And I click on "start placing ships"
 	}
 end
 
-When(/^I'm on the ship placement screen$/) do
-  pending # express the regexp above with the code you wish you had
+When(/^I click on the "(.*?)" button$/) do |link|
+  	click_link(link)
+end
+
+Then(/^I should be on the ship placement page$/) do
+  	expect(page.current_path).to eq '/ship_placement'
+end
+
+Given(/^I am on the ship placement page$/) do
+	steps %Q{
+		Given I've started a game with the players "Dave" and "Ethel"
+		When I click on the "start placing ships" button
+	}
 end
 
 Then(/^I should see a grid for placing a ships on$/) do
-  pending # express the regexp above with the code you wish you had
+  	expect(page).to have_selector('div#ship_placement')
 end
 
-Then(/^it's made from (\d+) squares for placing ships on$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^it is a (\d+)x(\d+) grid$/) do |length, width|
+  	expect(page).to have_selector('div.cell', :count => (length.to_i * width.to_i))
 end

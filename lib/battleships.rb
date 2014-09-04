@@ -18,16 +18,20 @@ class Battleships < Sinatra::Base
 		erb :new_game
 	end
 
-  post '/new_game/submit/player/:id' do |id|
+  	post '/new_game/submit/player/:id' do |id|
 		player_id = ("player_" + id).to_sym
 		session[player_id] = params[:player]
 		redirect '/new_game'
-  end
+  	end
 
 	delete '/new_game/reset' do
 		session.delete(:player_one)
 		session.delete(:player_two)
 		redirect '/'
+	end
+
+	get '/ship_placement' do
+		erb :ship_placement
 	end
 
   	# start the server if ruby file executed directly
