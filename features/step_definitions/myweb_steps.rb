@@ -82,7 +82,7 @@ Given(/^I am on the ship placement page$/) do
 end
 
 Then(/^I should see a grid for placing a ships on$/) do
-  	expect(page).to have_selector('div#ship_placement')
+  	expect(page).to have_selector('div#ship_board')
 end
 
 Then(/^it is a (\d+)x(\d+) grid$/) do |length, width|
