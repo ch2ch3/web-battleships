@@ -1,15 +1,20 @@
 <% if @player_one && !@player_two %>
 	Welcome to BattleShips, <%= @player_one %>!
 	Player Two, what's your name?
-	<form action="/new_game" method="post">
-		<input type="text" value="Player Two" name="player_two">
+	<form action="/new_game/submit/player/two" method="post">
+		<input type="text" value="Player Two" name="player">
 		<button type="submit" id="submit">Enter</button>
+	</form>
 <% elsif @player_one && @player_two %>
-  Welcome to BattleShips, <%= @player_two %>!
+	Welcome to BattleShips, <%= @player_one %> and <%= @player_two %>!
 <% else %>
 	Player One, what's your name?
-	<form action="/new_game" method="post">
-		<input type="text" value="Player One" name="player_one">
+	<form action="/new_game/submit/player/one" method="post">
+		<input type="text" value="Player One" name="player">
 		<button type="submit" id="submit">Enter</button>
 	</form>
 <% end %>
+<form action="/new_game/reset" method="post">
+	<input type="hidden" name="_method" value="delete">
+	<button type="submit" id="reset">Reset</button>
+</form>
