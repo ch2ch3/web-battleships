@@ -1,0 +1,23 @@
+# EditorConfig is awesome: http://EditorConfig.org
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+indent_style = tab
+tab_width = 2
+
+# Tab indentation (no size specified)
+[*.js]
+indent_style = tab
+tab_width = 4
+
+# Ruby indentation
+[*.rb]
+indent_style = tab
+tab_width = 2
+
+# YAML does not like tabs...
+[*.yml]
+indent_style = space
+tab_width = 2
+
