@@ -7,6 +7,7 @@
 	</form>
 <% elsif @player_one && @player_two %>
 	Welcome to BattleShips, <%= @player_one %> and <%= @player_two %>!
+	<a class="btn btn-default btn-lg" href="/placement" role="button">start placing ships</a>
 <% else %>
 	Player One, what's your name?
 	<form action="/new_game/submit/player/one" method="post">

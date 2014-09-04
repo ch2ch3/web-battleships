@@ -54,3 +54,27 @@ Given(/^Dave has added himself as a player$/) do
 	When I submit "Dave" as my name
 	}
 end
+
+Then(/^a button that says "(.*?)"$/) do |contents|
+	expect(page).to have_link(contents)
+end
+
+Given(/^I've started a game with the players "(.*?)" and "(.*?)"$/) do |arg1, arg2|
+	steps %Q{
+	Given Dave has added himself as a player
+	When I submit "Ethel" as my name
+	And I click on "start placing ships"
+	}
+end
+
+When(/^I'm on the ship placement screen$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^I should see a grid for placing a ships on$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^it's made from (\d+) squares for placing ships on$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
