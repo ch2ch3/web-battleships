@@ -6,7 +6,7 @@ require_relative 'ship_element'
 
 class Game
 
-	attr_reader :players, :current_player
+	attr_accessor :players, :current_player
 
 	DEFAULT_BOARD_DIMENSION = 10
 	SHIPS = [Carrier, BattleShip, Destroyer, Submarine, PatrolBoat]

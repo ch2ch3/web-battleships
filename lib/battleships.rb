@@ -16,6 +16,7 @@ class Battleships < Sinatra::Base
 	end
 
 	get '/new_game' do
+		# @players = session[:game_players]
 		@player_one = session[:player_one_name]
 		@player_two = session[:player_two_name]
 		erb :new_game
@@ -26,7 +27,9 @@ class Battleships < Sinatra::Base
 		session[player_name] = params[:player]
 		this_player = Player.new
 		session[:player_id] = this_player.object_id
-		GAME.players << Player.new
+		GAME.add_player(this_player)
+		# session[:game_players] ||= []
+		# session[:game_players] << this_player
 		redirect '/new_game'
 	end
 
@@ -37,9 +40,10 @@ class Battleships < Sinatra::Base
 	end
 
 	get '/ship_placement' do
+		@players = GAME.players
 		GAME.set_up_boards
-		@board = GAME.players[0].ship_board
-		#@board = GAME.players.select {|player| player.object_id == session[:player_id]}.first.ship_board
+		# below is not working at present because the players inside the cookie have not been updated when set_up_boards was called
+		@board = @players.first.ship_board.grid
 		erb :ship_placement
 	end
 

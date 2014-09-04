@@ -86,5 +86,5 @@ Then(/^I should see a grid for placing a ships on$/) do
 end
 
 Then(/^it is a (\d+)x(\d+) grid$/) do |length, width|
-  	expect(page).to have_selector('div.cell', :count => (length.to_i * width.to_i))
+  	expect(page).to have_selector('div.board_cell', :count => (length.to_i * width.to_i))
 end

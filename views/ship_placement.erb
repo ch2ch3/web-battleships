@@ -1,9 +1,11 @@
+<%= @players %>
+
 <div id="ship_board">
 
 <% @board.each do |row| %>
-	<div class="board_row" id="<% @board.index(row) %>">
+	<div class="board_row" id="<%= @board.index(row) %>">
 		<% row.each do |cell| %>
-			<div class="board_cell" id="<% row.index(cell) %>">
+			<div class="board_cell" id="<%= row.index(cell) %>">
 				bob
 			</div>
 		<% end %>
