@@ -40,6 +40,11 @@ class Game
 		end
 	end
 
+	def set_up_boards
+		create_boards
+		assign_boards
+	end
+
 	def build_fleets
 		players.each do |player|
 			SHIPS.each { |ship| player.fleet << ship.new(ShipElement) }

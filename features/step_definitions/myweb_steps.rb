@@ -54,3 +54,37 @@ Given(/^Dave has added himself as a player$/) do
 	When I submit "Dave" as my name
 	}
 end
+
+Then(/^a button that says "(.*?)"$/) do |contents|
+	expect(page).to have_link(contents)
+end
+
+Given(/^I've started a game with the players "(.*?)" and "(.*?)"$/) do |arg1, arg2|
+	steps %Q{
+	Given Dave has added himself as a player
+	When I submit "Ethel" as my name
+	}
+end
+
+When(/^I click on the "(.*?)" button$/) do |link|
+  	click_link(link)
+end
+
+Then(/^I should be on the ship placement page$/) do
+  	expect(page.current_path).to eq '/ship_placement'
+end
+
+Given(/^I am on the ship placement page$/) do
+	steps %Q{
+		Given I've started a game with the players "Dave" and "Ethel"
+		When I click on the "start placing ships" button
+	}
+end
+
+Then(/^I should see a grid for placing a ships on$/) do
+  	expect(page).to have_selector('div#ship_board')
+end
+
+Then(/^it is a (\d+)x(\d+) grid$/) do |length, width|
+  	expect(page).to have_selector('div.cell', :count => (length.to_i * width.to_i))
+end

@@ -25,3 +25,4 @@ Feature: Starting the game
 		Given Dave has added himself as a player
 		When I submit "Ethel" as my name
 		Then I should see "Welcome to BattleShips, Dave and Ethel!"
+		And a button that says "start placing ships"
