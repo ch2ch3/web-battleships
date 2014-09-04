@@ -34,7 +34,7 @@ class Game
 		end
 	end
 
-	def set_boards_up
+	def set_up_boards
 		create_boards
 		assign_boards
 	end
