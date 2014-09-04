@@ -37,7 +37,7 @@ class Battleships < Sinatra::Base
 	end
 
 	get '/ship_placement' do
-		GAME.create_boards
+		GAME.set_up_boards
 		@board = GAME.players[0].ship_board
 		#@board = GAME.players.select {|player| player.object_id == session[:player_id]}.first.ship_board
 		erb :ship_placement
