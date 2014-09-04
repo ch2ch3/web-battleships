@@ -1,1 +1,13 @@
-<div id="ship_placement"></div>
+<div id="ship_placement">
+
+<% @board.each do |row| %>
+	<div class="board_row" id="<% @board.index(row) %>">
+		<% row.each do |cell| %>
+			<div class="board_cell" id="<% row.index(cell) %>">
+				bob
+			</div>
+		<% end %>
+	</div>
+<% end %>
+
+</div>
