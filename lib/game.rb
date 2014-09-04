@@ -6,17 +6,23 @@ require_relative 'ship_element'
 
 class Game
 
-	attr_reader :player_1, :player_2, :players, :current_player
+	attr_reader :players, :current_player
 
 	DEFAULT_BOARD_DIMENSION = 10
 	SHIPS = [Carrier, BattleShip, Destroyer, Submarine, PatrolBoat]
 
 	def initialize
-		@player_1 = Player.new
-		@player_2 = Player.new
-		@players = [@player_1, @player_2]
-		@current_player = @player_1
+		@players = []
 	end
+
+  def current_player
+    @current_player ||= players[0]
+  end
+
+  def add_player(player)
+    players << player
+    @current_player = players[0]
+  end
 
 	def change_turn
 		@current_player = players.rotate![0]
