@@ -46,4 +46,7 @@ class Game
 		end
 	end
 
+  def reset
+    @players = []
+  end
 end

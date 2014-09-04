@@ -69,6 +69,12 @@ describe Game do
 	end
 
 	
+  it 'can reset the game' do
+    add_players(game)
+    game.build_fleets
+    game.reset
+    expect(game.players.empty?).to be true
+  end
 
 end
 
