@@ -1,6 +1,8 @@
 Web Battleships
 ===============
 
+![Travis build status](https://travis-ci.org/gypsydave5/web-battleships.svg?branch=master)
+
 As if it wasn't enough to write [Battleships for the
 terminal](https://github.com/gypsydave5/battleships), **YARR!spec**
 ([Ethel](https://github.com/ch2ch3), [Andy](https://github.com/andy010),
