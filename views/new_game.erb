@@ -5,14 +5,14 @@
 		<button type="submit" id="submit">Enter</button>
 	</form>
 <% elsif GAME.players.count == 1 %>
-	Welcome to BattleShips, <%= GAME.players.first %>!
+	Welcome to BattleShips, <%= GAME.players.first.name %>!
 	Player Two, what's your name?
 	<form action="/new_game/submit/player/two" method="post">
 		<input type="text" value="Player Two" name="player">
 		<button type="submit" id="submit">Enter</button>
 	</form>
 <% elsif GAME.players.count == 2 %>
-	Welcome to BattleShips, <%= GAME.players.first %> and <%= GAME.players.last %>!
+	Welcome to BattleShips, <%= GAME.players.first.name %> and <%= GAME.players.last.name %>!
 	<a class="btn btn-default btn-lg" href="/ship_placement" role="button">start placing ships</a>
 <% end %>
 <form action="/new_game/reset" method="post">

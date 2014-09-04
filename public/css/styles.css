@@ -1,0 +1,9 @@
+.board_row {
+	float: left;
+}
+
+.board_cell {
+	border: solid 1px black;
+	width: 30px;
+	height: 30px;
+}

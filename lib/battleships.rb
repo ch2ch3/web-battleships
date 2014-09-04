@@ -20,7 +20,7 @@ class Battleships < Sinatra::Base
 	end
 
 	post '/new_game/submit/player/:id' do |number|
-		this_player = Player.new
+		this_player = Player.new(params[:player])
 		session[:player_id] = this_player.object_id
 		GAME.add_player(this_player)
 		redirect '/new_game'
