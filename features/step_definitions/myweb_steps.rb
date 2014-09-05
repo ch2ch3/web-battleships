@@ -30,6 +30,11 @@ Given(/^I am on the new game page$/) do
 	visit '/new_game'
 end
 
+Given(/^I am starting a brand new game$/) do
+	Battleships::GAME.reset
+	visit '/new_game'
+end
+
 When(/^I submit "(.*?)" as my name$/) do |name|
 	fill_in("player", with: name)
 	click_button("submit")
@@ -48,7 +53,7 @@ When(/^Player One has added themselves as "(.*?)"$/) do |name|
   click_button("submit")
 end
 
-Given(/^Dave has added himself as a player$/) do
+Given(/^Dave has already added himself as a player$/) do
 	steps %Q{
 	Given I am on the new game page
 	When I submit "Dave" as my name

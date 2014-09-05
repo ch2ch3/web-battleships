@@ -9,10 +9,11 @@ class Battleships < Sinatra::Base
 
 	enable :sessions
 	set    :views, File.join(root, '..', 'views')
-	set    :public, File.join(root, '..', 'public')
+	set    :public_folder, File.join(root, '..', 'public')
 	set    :session_secret, 'disco'
 
 	get '/' do
+		GAME.reset
 		erb :index
 	end
 

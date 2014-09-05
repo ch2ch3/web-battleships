@@ -16,13 +16,13 @@ Feature: Starting the game
 		Then I should see "Welcome to BattleShips, Dave!"
 
 	Scenario: Not submitting my name
-		Given I am on the new game page
+		Given I am starting a brand new game
 		And I am the only player so far
 		When I submit my name without typing anything in
 		Then I should see "Welcome to BattleShips, Player One!"
 
   Scenario: Adding a second player
-		Given Dave has added himself as a player
+		Given Dave has already added himself as a player
 		When I submit "Ethel" as my name
 		Then I should see "Welcome to BattleShips, Dave and Ethel!"
 		And a button that says "start placing ships"
