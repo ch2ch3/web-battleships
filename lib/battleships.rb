@@ -3,7 +3,8 @@ require_relative 'game'
 
 class Battleships < Sinatra::Base
 
-	GAME = Game.new
+	GAMES = []
+	PLAYERS = []
 
 	use Rack::MethodOverride
 
@@ -13,7 +14,8 @@ class Battleships < Sinatra::Base
 	set    :session_secret, 'disco'
 
 	get '/' do
-		GAME.reset
+		@player = PLAYERS.detect {|player| player.object_id == session[:id]}
+		@players = PLAYERS
 		erb :index
 	end
 
@@ -21,22 +23,19 @@ class Battleships < Sinatra::Base
 		erb :new_game
 	end
 
-	post '/new_game/submit/player/:id' do |number|
-		this_player = Player.new(params[:player])
-		session[:player_id] = this_player.object_id
-		GAME.add_player(this_player)
-		redirect '/new_game'
+	post '/submit/player' do
+		player = Player.new(params[:player_name])
+		PLAYERS << player
+		session[:id] = player.object_id
+		redirect '/'
 	end
 
 	delete '/new_game/reset' do
 		session.clear
-		GAME.reset
 		redirect '/'
 	end
 
 	get '/ship_placement' do
-		GAME.set_up_boards
-		@board = GAME.current_player.ship_board.grid
 		erb :ship_placement
 	end
 

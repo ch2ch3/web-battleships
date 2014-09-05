@@ -1,5 +1,20 @@
+<% if session[:id] %>
+	<p>Welcome to Battleships, <%= @player.name %>!</p>
+	<p>WE'RE SO HAPPY TO SEE YOUUUUUUU!!!!!!!</p>
+	<p>Waiting for Player 2...</p>
+<% else %>
 Please enter your name:
-<form>
+<form action="/submit/player" method="POST">
 	<input type="text" placeholder="Name" name="player_name">
 	<button type="submit" id="submit_name">Enter</button>
 </form>
+<% end %>
+
+<% unless @players.empty? %>
+	<h2>Players Connected</h2>
+	<% @players.each do |player|%>
+		<p>Player <%= @players.index(player) + 1 %>: <%= player.name %></p>
+	<% end %>
+<% end %>
+
+
