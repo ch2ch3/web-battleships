@@ -5,8 +5,8 @@ Web Battleships
 
 As if it wasn't enough to write [Battleships for the
 terminal](https://github.com/gypsydave5/battleships), **YARR!spec**
-([Ethel](https://github.com/ch2ch3), [Andy](https://github.com/andy010),
-[Spike](https://github.com/spike01), and [Dave](https://github.com/gypsydave5))
+([Andy](https://github.com/andy010),
+[Spike](https://github.com/spike01), [Dave](https://github.com/gypsydave5), and I)
 now attempt to do the same with a web interface, utilizing the
 [Sinatra](http://www.sinatrarb.com/) framework, a souçon of
 [Bootstrap](http://getbootstrap.com/) and a whole lot of luck.
